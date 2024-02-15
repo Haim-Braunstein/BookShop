@@ -20,6 +20,14 @@ function updatePrice(bookPrice) {
 
 }
 
+function addBook(title, price) {
+
+    const newBook = _createBook(title, price)
+
+    gBooks.unshift(newBook)
+
+}
+
 function _createBooks() {
 
     return [
@@ -44,5 +52,17 @@ function _createBooks() {
             imgUrl: 'lori-ipsi.jpg'
         },
     ]
+
+}
+
+function _createBook(title, price) {
+
+    return {
+        id: '3214Fd',
+        title,
+        price,
+        imgUrl: 'lori-ipsi.jpg'
+
+    }
 
 }

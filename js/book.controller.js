@@ -7,7 +7,6 @@ function onInit() {
 function renderBooks() {
 
     const books = getBooks()
-    console.log(gBooks)
 
     const strHTMLs = books.map(book => `
     <tr>
@@ -37,5 +36,21 @@ function onUpdateBook(bookPrice) {
 
 updatePrice(bookPrice)
 renderBooks()
+
+}
+
+function onAddBook(ev){
+    ev.preventDefault()
+
+
+    const formBtn = document.querySelector('form button')
+
+    const title = prompt('Enter a title book')
+    const price = prompt('Enter the price')
+
+    addBook(title, price)
+
+    renderBooks()
+
 
 }
