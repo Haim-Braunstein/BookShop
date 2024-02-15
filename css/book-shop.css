@@ -1,8 +1,11 @@
-*{
+* {
     box-sizing: border-box;
+    text-align: center;
 }
 
- table, .board td, th{
+table,
+.board td,
+th {
     border: 1px solid black;
+    margin: auto;
 }
-
