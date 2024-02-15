@@ -7,7 +7,7 @@ function onInit() {
 function renderBooks() {
 
     const books = getBooks()
-    console.log( gBooks)
+    console.log(gBooks)
 
     const strHTMLs = books.map(book => `
     <tr>
@@ -15,7 +15,7 @@ function renderBooks() {
     <td>${book.price}</td>
     <td>
         <button>read</button>
-        <button> update</button>
+        <button onclick="onUpdateBook(${book.price})"> update</button>
         <button onclick="onRemoveBook('${book.id}')">delete</button>
     </td>
     </tr>
@@ -26,9 +26,16 @@ function renderBooks() {
     elTable.innerHTML = strHTMLs.join('')
 }
 
-function onRemoveBook(bookId){
+function onRemoveBook(bookId) {
 
     removeBook(bookId)
     renderBooks()
+
+}
+
+function onUpdateBook(bookPrice) { 
+
+updatePrice(bookPrice)
+renderBooks()
 
 }
