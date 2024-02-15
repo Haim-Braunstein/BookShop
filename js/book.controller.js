@@ -7,6 +7,7 @@ function onInit() {
 function renderBooks() {
 
     const books = getBooks()
+    console.log( gBooks)
 
     const strHTMLs = books.map(book => `
     <tr>
@@ -15,7 +16,7 @@ function renderBooks() {
     <td>
         <button>read</button>
         <button> update</button>
-        <button>delete</button>
+        <button onclick="onRemoveBook('${book.id}')">delete</button>
     </td>
     </tr>
 
@@ -23,6 +24,11 @@ function renderBooks() {
 
     const elTable = document.querySelector('.board')
     elTable.innerHTML = strHTMLs.join('')
+}
 
+function onRemoveBook(bookId){
+
+    removeBook(bookId)
+    renderBooks()
 
 }

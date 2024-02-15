@@ -1,6 +1,21 @@
+'use strict'
 
+var gBooks = _createBooks()
 
 function getBooks() {
+
+    return gBooks
+}
+
+
+function removeBook(bookId) {
+    const bookIdx = gBooks.findIndex(book => book.id === bookId)
+    gBooks.splice(bookIdx, 1)
+    console.log(gBooks);
+    console.log(bookIdx);
+}
+
+function _createBooks() {
 
     return [
         {
@@ -23,8 +38,6 @@ function getBooks() {
             price: 87,
             imgUrl: 'lori-ipsi.jpg'
         },
-
-
-
     ]
+
 }
