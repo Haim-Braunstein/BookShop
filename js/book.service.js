@@ -28,6 +28,14 @@ function addBook(title, price) {
 
 }
 
+function detailsBook(bookId) {
+
+    const book = gBooks.find(book =>book.id === bookId)
+
+    return book
+
+}
+
 function _createBooks() {
 
     return [
