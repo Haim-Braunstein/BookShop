@@ -57,9 +57,21 @@ function detailsBook(bookId) {
 function popUpMsg(bookId) {
 
     const book = gBooks.find(book => book.id === bookId)
-    
+
     return book ? book.title : null
 
+}
+
+function cheapBooks() {
+    return gBooks.filter(book => book.price < 80).length
+}
+
+function averageBooks() {
+    return gBooks.filter(book => book.price > 80 && book.price < 200).length
+}
+
+function expensiveBooks() {
+    return gBooks.filter(book => book.price > 200).length
 }
 
 function _createBooks() {

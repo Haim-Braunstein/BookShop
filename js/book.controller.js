@@ -23,6 +23,19 @@ function renderBooks() {
 
     const elTable = document.querySelector('.board')
     elTable.innerHTML = strHTMLs.join('')
+    renderStats()
+}
+
+
+function renderStats() {
+    const elExpensive = document.querySelector('.expensive-books')
+    const elAverage = document.querySelector('.average-books')
+    const elCheap = document.querySelector('.cheap-books')
+
+    elExpensive.innerText = expensiveBooks()
+    elAverage.innerText=  averageBooks()
+    elCheap.innerText =  cheapBooks()
+
 }
 
 function onSetFilterBy(elInput) {
