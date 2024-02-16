@@ -40,6 +40,8 @@ function onClearInput() {
 function onRemoveBook(bookId) {
     removeBook(bookId)
     renderBooks()
+    onPopUpMsg('Removed', bookId)
+
 
 }
 
@@ -47,7 +49,10 @@ function onUpdateBook(bookPrice) {
     updatePrice(bookPrice)
     renderBooks()
 
+    onPopUpMsg('updated', bookPrice)
+
 }
+
 
 function onAddBook(ev) {
     ev.preventDefault()
@@ -55,8 +60,12 @@ function onAddBook(ev) {
     const title = prompt('Enter a title book')
     const price = +prompt('Enter the price')
 
+    if (!title || !price) return
+
     addBook(title, price)
     renderBooks()
+    onPopUpMsg('Added', title)
+
 
 }
 
@@ -66,11 +75,26 @@ function onDetailsBook(bookId) {
 
     const elBookDetails = document.querySelector('.book-details ')
     const elSpanH2 = document.querySelector('h2 span')
-    const elPre = document.querySelector('pre')
+    const elPre = document.querySelector('.book-details pre')
 
     elPre.innerText = JSON.stringify(book, null, 2)
     elSpanH2.innerText = book.title
 
     elBookDetails.showModal()
+
+}
+
+function onPopUpMsg(msg, title) {
+
+    const elPopUp = document.querySelector('.pop-up')
+    const elPre = document.querySelector('.pop-up pre')
+
+    elPre.innerHTML = `You successfully ${msg} the book ${title}`
+
+    elPopUp.showModal()
+
+    setTimeout(() => {
+        elPopUp.close()
+    }, 2000)
 
 }

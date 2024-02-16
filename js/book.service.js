@@ -54,6 +54,14 @@ function detailsBook(bookId) {
 
 }
 
+function popUpMsg(bookId) {
+
+    const book = gBooks.find(book => book.id === bookId)
+    
+    return book ? book.title : null
+
+}
+
 function _createBooks() {
 
     gBooks = loadFromStorage(BOOK_DB)

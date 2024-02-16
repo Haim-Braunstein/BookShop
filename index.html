@@ -11,7 +11,7 @@
 <body onload="onInit()">
     <h1> Book Shop</h1>
     <section class="filter">
-        <span>Filter By:</span>
+        <span>Search By Book Title:</span>
         <input type="text" oninput="onSetFilterBy(this)" placeholder="Book title" />
         <button onclick="onClearInput()">Clear</button>
         </select>
@@ -26,6 +26,13 @@
         <tbody class="board">
         </tbody>
     </table>
+
+    <dialog class="pop-up">
+    <form method="dialog">
+        <h2><span></span></h2>
+        <pre></pre>
+    </form>
+</dialog>
 
     <dialog class="book-details">
         <form method="dialog">
