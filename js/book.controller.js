@@ -25,6 +25,18 @@ function renderBooks() {
     elTable.innerHTML = strHTMLs.join('')
 }
 
+function onSetFilterBy(elInput) {
+    const filterBy = elInput.value
+    SetFilterBy(filterBy)
+    renderBooks()
+}
+
+function onClearInput() {
+    const elInput = document.querySelector('.filter input')
+    elInput.value = ''
+    onSetFilterBy('')
+}
+
 function onRemoveBook(bookId) {
     removeBook(bookId)
     renderBooks()

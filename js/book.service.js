@@ -2,12 +2,21 @@
 
 const BOOK_DB = 'bookDB'
 
-var gBooks 
+var gBooks
+var gFilterby
+
+
 _createBooks()
 
 function getBooks() {
 
-    return gBooks
+    if (!gFilterby || gFilterby === '') return gBooks
+
+    return gBooks.filter(book => book.title.toLowerCase() === gFilterby.toLowerCase())
+}
+
+function SetFilterBy(filterBy) {
+    gFilterby = filterBy
 }
 
 function removeBook(bookId) {
@@ -50,11 +59,11 @@ function _createBooks() {
     gBooks = loadFromStorage(BOOK_DB)
 
     if (!gBooks) {
-        
+
         gBooks = [
             {
                 id: 'bg4J78',
-                title: 'The adventures of Lori Ipsi',
+                title: 'The Adventures Of Lori Ipsi',
                 price: 120,
                 imgUrl: 'lori-ipsi.jpg'
             },
@@ -68,7 +77,7 @@ function _createBooks() {
 
             {
                 id: 'az27L2',
-                title: 'Zorba the Greek',
+                title: 'Zorba The Greek',
                 price: 87,
                 imgUrl: 'lori-ipsi.jpg'
             },

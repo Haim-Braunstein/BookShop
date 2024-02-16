@@ -10,6 +10,12 @@
 
 <body onload="onInit()">
     <h1> Book Shop</h1>
+    <section class="filter">
+        <span>Filter By:</span>
+        <input type="text" oninput="onSetFilterBy(this)" placeholder="Book title" />
+        <button onclick="onClearInput()">Clear</button>
+        </select>
+    </section>
     <form>
         <button onclick="onAddBook(event)">Add</button>
     </form>
@@ -27,14 +33,11 @@
             <pre></pre>
             <button>X</button>
         </form>
-        </dialog>
+    </dialog>
 
-        <script src="js/storage.service.js"></script>
-        <script src="js/book.service.js"></script>
-        <script src="js/book.controller.js"></script>
+    <script src="js/storage.service.js"></script>
+    <script src="js/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
 </body>
 
 </html>
-
-
-
