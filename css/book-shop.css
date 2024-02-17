@@ -8,31 +8,90 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../img/book-shop.jpg');
+    background-repeat: no-repeat;
+
+    background-size: cover;
 }
 
 table,
  td,
 th {
-    border: 1px solid black;
+    border-radius: 10px;
     margin: 0 auto;
+    color:rgb(59, 74, 206);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    z-index: 1;
+}
+
+td, th {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+table {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+}
+
+th {
+    background-color: #4795df;
+    color: white;
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+button{
+    border-radius: 10px;
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style:oblique;
+    font-weight: bold;
+    color: rgb(0, 26, 255);
+}
+
+.pop-up{
+    background-color: rgb(168, 207, 240);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    border: 5px solid rgb(0, 26, 255) ;
+    font-size: 1rem;
+    color: rgb(0, 26, 255);
 
 }
 
+h1{
+    color: rgb(0, 26, 255);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.filter{
+    margin-bottom: 50px;
+    color: rgb(0, 26, 255);
+}
 
 .book-details {
     background-color: rgb(168, 207, 240);
-
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    border: 5px solid rgb(0, 26, 255) ;
 
 }
 
 footer {
     display: flex;
-    background-color: rgb(222, 197, 176);
+    background-color:slateblue;
     font-family: Arial, Helvetica, sans-serif;
     justify-content: space-around;
     margin-top: auto;
     padding: 10px;
+    font-weight: bold;
 }
 
 .match{

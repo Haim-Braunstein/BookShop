@@ -52,13 +52,11 @@ function detailsBook(bookId) {
 
 }
 
-function popUpMsg(bookId) {
-
-    const book = gBooks.find(book => book.id === bookId)
-
-    return book ? book.title : null
-
-}
+// function ratingBook(bookRating,bookF){
+//     console.log(bookF);
+//     const book = gBooks.find(book => book.id === bookF.id)
+//     book.rating = bookRating
+// }
 
 function cheapBooks() {
     return gBooks.filter(book => book.price < 80).length

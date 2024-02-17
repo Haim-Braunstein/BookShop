@@ -1,4 +1,3 @@
-
 'use strict'
 
 function onInit() {
@@ -32,8 +31,8 @@ function renderBooks() {
     }
 
     renderStats()
+    // renderRatingBook()
 }
-
 
 function renderStats() {
     const elExpensive = document.querySelector('.expensive-books')
@@ -63,8 +62,6 @@ function onRemoveBook(bookId) {
     removeBook(bookId)
     renderBooks()
     onPopUpMsg('Removed', book.title)
-
-
 }
 
 function onUpdateBook(bookId) {
@@ -76,7 +73,6 @@ function onUpdateBook(bookId) {
     onPopUpMsg('updated the price of', bookTitle)
 
 }
-
 
 function onAddBook() {
     const elTitle = document.querySelector('.title')
@@ -106,16 +102,24 @@ function onCloseModalAddBook() {
 function onDetailsBook(bookId) {
 
     const book = detailsBook(bookId)
+    // renderRatingBook(book)
 
     const elBookDetails = document.querySelector('.book-details ')
-    const elSpanH2 = document.querySelector('h2 span')
     const elPre = document.querySelector('.book-details pre')
-
     elPre.innerText = JSON.stringify(book, null, 2)
-    elSpanH2.innerText = book.title
 
     elBookDetails.showModal()
 
+}
+
+var countRating = 0
+
+function renderRatingBook(book) {
+    const elRating = document.querySelector('.rating')
+
+    elRating.innerText = countRating++
+    if (countRating === 6) countRating--
+    ratingBook(countRating, book)
 }
 
 function onPopUpMsg(msg, title) {

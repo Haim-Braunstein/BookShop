@@ -15,14 +15,12 @@
         <input type="text" oninput="onSetFilterBy(this)" placeholder="Book title" />
         <button onclick="onClearInput()">Clear</button>
         </select>
-    </section>
-    <section>
         <button onclick="onOpenModalAddBook(event)">Add a new book</button>
         <dialog class="add-book">
             <form onsubmit="onAddBook()" method="dialog">
                 <h2>Enter the details</h2>
-               Title:<input class="title" type="text"/> 
-                price: <input class="price" type="text"/> 
+                Title:<input class="title" type="text" />
+                price: <input class="price" type="text" />
                 <button type="submit">Add Book</button>
                 <button type="button" onclick="onCloseModalAddBook()">X</button>
             </form>
@@ -46,7 +44,11 @@
     <dialog class="book-details">
         <form method="dialog">
             <h2>Book Details: <span></span></h2>
-            <pre></pre>
+            <pre>
+            </pre>
+            <button class="minusBtn" type="button">-</button>
+            <span class="rating"></span>
+            <button class="plusBtn" type="button" onclick="renderRatingBook()">+</button>
             <button>X</button>
         </form>
     </dialog>
