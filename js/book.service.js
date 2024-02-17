@@ -3,20 +3,23 @@
 const BOOK_DB = 'bookDB'
 
 var gBooks
-var gFilterby
+var gFilterBy
 
 
 _createBooks()
 
 function getBooks() {
 
-    if (!gFilterby || gFilterby === '') return gBooks
+    if (!gFilterBy || gFilterBy === '') return gBooks
 
-    return gBooks.filter(book => book.title.toLowerCase() === gFilterby.toLowerCase())
+    const matchingFilter = gBooks.filter(book => book.title.toLowerCase() === gFilterBy.toLowerCase())
+
+    return matchingFilter
+
 }
 
 function SetFilterBy(filterBy) {
-    gFilterby = filterBy
+    gFilterBy = filterBy
 }
 
 function removeBook(bookId) {
@@ -32,7 +35,6 @@ function updatePrice(bookPrice) {
     book.price = newPrice
 
     _saveBooks()
-
 }
 
 function addBook(title, price) {
@@ -42,8 +44,6 @@ function addBook(title, price) {
     gBooks.unshift(newBook)
 
     _saveBooks()
-
-
 }
 
 function detailsBook(bookId) {

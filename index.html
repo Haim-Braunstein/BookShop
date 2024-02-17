@@ -16,9 +16,18 @@
         <button onclick="onClearInput()">Clear</button>
         </select>
     </section>
-    <form>
-        <button onclick="onAddBook(event)">Add</button>
-    </form>
+    <section>
+        <button onclick="onOpenModalAddBook(event)">Add a new book</button>
+        <dialog class="add-book">
+            <form onsubmit="onAddBook()" method="dialog">
+                <h2>Enter the details</h2>
+               Title:<input class="title" type="text"/> 
+                price: <input class="price" type="text"/> 
+                <button type="submit">Add Book</button>
+                <button type="button" onclick="onCloseModalAddBook()">X</button>
+            </form>
+        </dialog>
+    </section>
     <table>
         <th>Title</th>
         <th>Price</th>
@@ -28,11 +37,11 @@
     </table>
 
     <dialog class="pop-up">
-    <form method="dialog">
-        <h2><span></span></h2>
-        <pre></pre>
-    </form>
-</dialog>
+        <form method="dialog">
+            <h2><span></span></h2>
+            <pre></pre>
+        </form>
+    </dialog>
 
     <dialog class="book-details">
         <form method="dialog">

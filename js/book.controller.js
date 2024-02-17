@@ -1,4 +1,5 @@
 
+'use strict'
 
 function onInit() {
     renderBooks()
@@ -7,8 +8,15 @@ function onInit() {
 function renderBooks() {
 
     const books = getBooks()
+    const elTable = document.querySelector('.board')
 
-    const strHTMLs = books.map(book => `
+    if (books.length === 0) {
+
+        elTable.innerHTML = `<tr class="match"><td colspan="3">
+        No matching books were found</td></tr>`
+
+    } else {
+        const strHTMLs = books.map(book => `
     <tr>
     <td>${book.title}</td>
     <td>${book.price}</td>
@@ -18,11 +26,11 @@ function renderBooks() {
         <button onclick="onRemoveBook('${book.id}')">Delete</button>
     </td>
     </tr>
+    `
+        )
+        elTable.innerHTML = strHTMLs.join('')
+    }
 
-    `)
-
-    const elTable = document.querySelector('.board')
-    elTable.innerHTML = strHTMLs.join('')
     renderStats()
 }
 
@@ -33,8 +41,8 @@ function renderStats() {
     const elCheap = document.querySelector('.cheap-books')
 
     elExpensive.innerText = expensiveBooks()
-    elAverage.innerText=  averageBooks()
-    elCheap.innerText =  cheapBooks()
+    elAverage.innerText = averageBooks()
+    elCheap.innerText = cheapBooks()
 
 }
 
@@ -67,19 +75,30 @@ function onUpdateBook(bookPrice) {
 }
 
 
-function onAddBook(ev) {
+function onAddBook() {
+
+    const elTitle = document.querySelector('.title')
+    const elPrice = document.querySelector('.price')
+    const price = parseInt(elPrice.value)
+
+    if (!elTitle.value || !price) return
+
+    addBook(elTitle.value, price)
+    renderBooks()
+    onPopUpMsg('Added', elTitle.value)
+
+}
+
+function onOpenModalAddBook(ev) {
     ev.preventDefault()
 
-    const title = prompt('Enter a title book')
-    const price = +prompt('Enter the price')
+    const elAddBook = document.querySelector('.add-book')
+    elAddBook.showModal()
+}
 
-    if (!title || !price) return
-
-    addBook(title, price)
-    renderBooks()
-    onPopUpMsg('Added', title)
-
-
+function onCloseModalAddBook() {
+    const elAddBook = document.querySelector('.add-book')
+    elAddBook.close()
 }
 
 function onDetailsBook(bookId) {
