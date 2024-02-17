@@ -85,6 +85,7 @@ function _createBooks() {
                 id: 'bg4J78',
                 title: 'The Adventures Of Lori Ipsi',
                 price: 120,
+                rating: 3, 
                 imgUrl: 'lori-ipsi.jpg'
             },
 
@@ -92,6 +93,7 @@ function _createBooks() {
                 id: 'Fd6J98',
                 title: 'World Atlas',
                 price: 300,
+                rating: 4,
                 imgUrl: 'lori-ipsi.jpg'
             },
 
@@ -99,6 +101,7 @@ function _createBooks() {
                 id: 'az27L2',
                 title: 'Zorba The Greek',
                 price: 87,
+                rating: 5,
                 imgUrl: 'lori-ipsi.jpg'
             },
         ]
@@ -114,6 +117,7 @@ function _createBook(title, price) {
         id: '3214Fd',
         title,
         price,
+        rating:0,
         imgUrl: 'lori-ipsi.jpg'
     }
 
