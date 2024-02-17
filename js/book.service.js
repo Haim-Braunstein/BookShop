@@ -29,16 +29,14 @@ function removeBook(bookId) {
     _saveBooks()
 }
 
-function updatePrice(bookPrice) {
-    const newPrice = prompt('Enter a new price', bookPrice)
-    const book = gBooks.find(book => book.price === bookPrice)
+function updatePrice(bookId, newPrice) {
+    const book = gBooks.find(book => book.id === bookId)
     book.price = newPrice
 
     _saveBooks()
 }
 
 function addBook(title, price) {
-
     const newBook = _createBook(title, price)
 
     gBooks.unshift(newBook)

@@ -22,7 +22,7 @@ function renderBooks() {
     <td>${book.price}</td>
     <td>
         <button onclick="onDetailsBook('${book.id}')">Details</button>
-        <button onclick="onUpdateBook(${book.price})"> Update</button>
+        <button onclick="onUpdateBook('${book.id}')"> Update</button>
         <button onclick="onRemoveBook('${book.id}')">Delete</button>
     </td>
     </tr>
@@ -59,24 +59,26 @@ function onClearInput() {
 }
 
 function onRemoveBook(bookId) {
+    const book = detailsBook(bookId)
     removeBook(bookId)
     renderBooks()
-    onPopUpMsg('Removed', bookId)
+    onPopUpMsg('Removed', book.title)
 
 
 }
 
-function onUpdateBook(bookPrice) {
-    updatePrice(bookPrice)
-    renderBooks()
+function onUpdateBook(bookId) {
+    const newPrice = +prompt('Enter a new price')
+    updatePrice(bookId, newPrice)
+    const bookTitle = detailsBook(bookId).title
 
-    onPopUpMsg('updated', bookPrice)
+    renderBooks()
+    onPopUpMsg('updated the price of', bookTitle)
 
 }
 
 
 function onAddBook() {
-
     const elTitle = document.querySelector('.title')
     const elPrice = document.querySelector('.price')
     const price = parseInt(elPrice.value)
@@ -121,7 +123,7 @@ function onPopUpMsg(msg, title) {
     const elPopUp = document.querySelector('.pop-up')
     const elPre = document.querySelector('.pop-up pre')
 
-    elPre.innerHTML = `You successfully ${msg} the book ${title}`
+    elPre.innerHTML = `You successfully ${msg} the book: ${title}`
 
     elPopUp.showModal()
 
